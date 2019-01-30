@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		F94AC7592201893400C393E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC7582201893400C393E5 /* AppDelegate.swift */; };
-		F94AC75B2201893400C393E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC75A2201893400C393E5 /* ViewController.swift */; };
+		F94AC75B2201893400C393E5 /* MDEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC75A2201893400C393E5 /* MDEditorViewController.swift */; };
 		F94AC75E2201893400C393E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94AC75C2201893400C393E5 /* Main.storyboard */; };
 		F94AC7602201893600C393E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94AC75F2201893600C393E5 /* Assets.xcassets */; };
 		F94AC7632201893600C393E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94AC7612201893600C393E5 /* LaunchScreen.storyboard */; };
+		F94AC76B2201907E00C393E5 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC76A2201907E00C393E5 /* PreviewViewController.swift */; };
+		F94AC7722201923E00C393E5 /* showdown.js in Resources */ = {isa = PBXBuildFile; fileRef = F94AC76E2201923E00C393E5 /* showdown.js */; };
+		F94AC7732201923E00C393E5 /* github-markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = F94AC7712201923E00C393E5 /* github-markdown.css */; };
+		F94AC7752201929F00C393E5 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = F94AC7742201929F00C393E5 /* index.html */; };
+		F94AC7772201955000C393E5 /* convert.js in Resources */ = {isa = PBXBuildFile; fileRef = F94AC7762201955000C393E5 /* convert.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F94AC7552201893400C393E5 /* MDEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94AC7582201893400C393E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F94AC75A2201893400C393E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F94AC75A2201893400C393E5 /* MDEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDEditorViewController.swift; sourceTree = "<group>"; };
 		F94AC75D2201893400C393E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F94AC75F2201893600C393E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94AC7622201893600C393E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F94AC7642201893600C393E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F94AC76A2201907E00C393E5 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		F94AC76E2201923E00C393E5 /* showdown.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = showdown.js; sourceTree = "<group>"; };
+		F94AC7712201923E00C393E5 /* github-markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.css"; sourceTree = "<group>"; };
+		F94AC7742201929F00C393E5 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		F94AC7762201955000C393E5 /* convert.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = convert.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,51 @@
 		F94AC7572201893400C393E5 /* MDEditor */ = {
 			isa = PBXGroup;
 			children = (
+				F94AC76C2201917500C393E5 /* Resources */,
 				F94AC7582201893400C393E5 /* AppDelegate.swift */,
-				F94AC75A2201893400C393E5 /* ViewController.swift */,
+				F94AC75A2201893400C393E5 /* MDEditorViewController.swift */,
 				F94AC75C2201893400C393E5 /* Main.storyboard */,
 				F94AC75F2201893600C393E5 /* Assets.xcassets */,
 				F94AC7612201893600C393E5 /* LaunchScreen.storyboard */,
 				F94AC7642201893600C393E5 /* Info.plist */,
+				F94AC76A2201907E00C393E5 /* PreviewViewController.swift */,
 			);
 			path = MDEditor;
+			sourceTree = "<group>";
+		};
+		F94AC76C2201917500C393E5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F94AC7702201923E00C393E5 /* css */,
+				F94AC76F2201923E00C393E5 /* html */,
+				F94AC76D2201923E00C393E5 /* js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F94AC76D2201923E00C393E5 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				F94AC76E2201923E00C393E5 /* showdown.js */,
+				F94AC7762201955000C393E5 /* convert.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		F94AC76F2201923E00C393E5 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				F94AC7742201929F00C393E5 /* index.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
+		F94AC7702201923E00C393E5 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				F94AC7712201923E00C393E5 /* github-markdown.css */,
+			);
+			path = css;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +169,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F94AC7732201923E00C393E5 /* github-markdown.css in Resources */,
 				F94AC7632201893600C393E5 /* LaunchScreen.storyboard in Resources */,
+				F94AC7772201955000C393E5 /* convert.js in Resources */,
 				F94AC7602201893600C393E5 /* Assets.xcassets in Resources */,
+				F94AC7752201929F00C393E5 /* index.html in Resources */,
 				F94AC75E2201893400C393E5 /* Main.storyboard in Resources */,
+				F94AC7722201923E00C393E5 /* showdown.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F94AC75B2201893400C393E5 /* ViewController.swift in Sources */,
+				F94AC75B2201893400C393E5 /* MDEditorViewController.swift in Sources */,
 				F94AC7592201893400C393E5 /* AppDelegate.swift in Sources */,
+				F94AC76B2201907E00C393E5 /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

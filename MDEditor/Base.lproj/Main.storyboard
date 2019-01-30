@@ -1,24 +1,316 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NMo-0V-qEW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="2yx-ix-Ma3">
+            <objects>
+                <navigationController id="NMo-0V-qEW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hYI-om-VgE">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hmD-kr-0bx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Lv-sF-Ecf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1196" y="192"/>
+        </scene>
+        <!--MD编辑器-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MDEditorViewController" customModule="MDEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="标题" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lmX-F8-MLK">
+                                <rect key="frame" x="0.0" y="64" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bIH-AF-rR7"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QJo-Rx-eh0">
+                                <rect key="frame" x="0.0" y="94" width="375" height="573"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text"># Dillinger
+
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
+
+  - Type some Markdown on the left
+  - See HTML in the right
+  - Magic
+
+# New Features!
+
+  - Import a HTML file and watch it magically convert to Markdown
+  - Drag and drop images (requires your Dropbox account be linked)
+
+
+You can also:
+  - Import and save files from GitHub, Dropbox, Google Drive and One Drive
+  - Drag and drop markdown and HTML files into Dillinger
+  - Export documents as Markdown, HTML and PDF
+
+Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
+
+&gt; The overriding design goal for Markdown's
+&gt; formatting syntax is to make it as readable
+&gt; as possible. The idea is that a
+&gt; Markdown-formatted document should be
+&gt; publishable as-is, as plain text, without
+&gt; looking like it's been marked up with tags
+&gt; or formatting instructions.
+
+This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
+
+### Tech
+
+Dillinger uses a number of open source projects to work properly:
+
+* [AngularJS] - HTML enhanced for web apps!
+* [Ace Editor] - awesome web-based text editor
+* [markdown-it] - Markdown parser done right. Fast and easy to extend.
+* [Twitter Bootstrap] - great UI boilerplate for modern web apps
+* [node.js] - evented I/O for the backend
+* [Express] - fast node.js network app framework [@tjholowaychuk]
+* [Gulp] - the streaming build system
+* [Breakdance](http://breakdance.io) - HTML to Markdown converter
+* [jQuery] - duh
+
+And of course Dillinger itself is open source with a [public repository][dill]
+ on GitHub.
+
+### Installation
+
+Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
+
+Install the dependencies and devDependencies and start the server.
+
+```sh
+$ cd dillinger
+$ npm install -d
+$ node app
+```
+
+For production environments...
+
+```sh
+$ npm install --production
+$ NODE_ENV=production node app
+```
+
+### Plugins
+
+Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+
+| Plugin | README |
+| ------ | ------ |
+| Dropbox | [plugins/dropbox/README.md][PlDb] |
+| Github | [plugins/github/README.md][PlGh] |
+| Google Drive | [plugins/googledrive/README.md][PlGd] |
+| OneDrive | [plugins/onedrive/README.md][PlOd] |
+| Medium | [plugins/medium/README.md][PlMe] |
+| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+
+
+### Development
+
+Want to contribute? Great!
+
+Dillinger uses Gulp + Webpack for fast developing.
+Make a change in your file and instantanously see your updates!
+
+Open your favorite Terminal and run these commands.
+
+First Tab:
+```sh
+$ node app
+```
+
+Second Tab:
+```sh
+$ gulp watch
+```
+
+(optional) Third:
+```sh
+$ karma test
+```
+#### Building for source
+For production release:
+```sh
+$ gulp build --prod
+```
+Generating pre-built zip archives for distribution:
+```sh
+$ gulp build dist --prod
+```
+### Docker
+Dillinger is very easy to install and deploy in a Docker container.
+
+By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+
+```sh
+cd dillinger
+docker build -t joemccann/dillinger:${package.json.version} .
+```
+This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out `${package.json.version}` with the actual version of Dillinger.
+
+Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
+
+```sh
+docker run -d -p 8000:8080 --restart="always" &lt;youruser&gt;/dillinger:${package.json.version}
+```
+
+Verify the deployment by navigating to your server address in your preferred browser.
+
+```sh
+127.0.0.1:8000
+```
+
+#### Kubernetes + Google Cloud
+
+See [KUBERNETES.md](https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md)
+
+
+### Todos
+
+ - Write MORE Tests
+ - Add Night Mode
+
+License
+----
+
+MIT
+
+
+**Free Software, Hell Yeah!**
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+
+   [dill]: &lt;https://github.com/joemccann/dillinger&gt;
+   [git-repo-url]: &lt;https://github.com/joemccann/dillinger.git&gt;
+   [john gruber]: &lt;http://daringfireball.net&gt;
+   [df1]: &lt;http://daringfireball.net/projects/markdown/&gt;
+   [markdown-it]: &lt;https://github.com/markdown-it/markdown-it&gt;
+   [Ace Editor]: &lt;http://ace.ajax.org&gt;
+   [node.js]: &lt;http://nodejs.org&gt;
+   [Twitter Bootstrap]: &lt;http://twitter.github.com/bootstrap/&gt;
+   [jQuery]: &lt;http://jquery.com&gt;
+   [@tjholowaychuk]: &lt;http://twitter.com/tjholowaychuk&gt;
+   [express]: &lt;http://expressjs.com&gt;
+   [AngularJS]: &lt;http://angularjs.org&gt;
+   [Gulp]: &lt;http://gulpjs.com&gt;
+
+   [PlDb]: &lt;https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md&gt;
+   [PlGh]: &lt;https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md&gt;
+   [PlGd]: &lt;https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md&gt;
+   [PlOd]: &lt;https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md&gt;
+   [PlMe]: &lt;https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md&gt;
+   [PlGa]: &lt;https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md&gt;
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QJo-Rx-eh0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2ws-d9-6ra"/>
+                            <constraint firstAttribute="bottom" secondItem="QJo-Rx-eh0" secondAttribute="bottom" id="Ep2-VA-4Pm"/>
+                            <constraint firstItem="lmX-F8-MLK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GRG-p2-hT9"/>
+                            <constraint firstItem="lmX-F8-MLK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XFs-33-7fR"/>
+                            <constraint firstItem="QJo-Rx-eh0" firstAttribute="top" secondItem="lmX-F8-MLK" secondAttribute="bottom" id="cpi-LW-EMg"/>
+                            <constraint firstItem="QJo-Rx-eh0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="crL-7g-yFB"/>
+                            <constraint firstItem="lmX-F8-MLK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gsg-Dg-jqh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="MD编辑器" id="Usy-Uh-HhJ">
+                        <rightBarButtonItems>
+                            <barButtonItem title="保存" id="FWP-Cj-eUw"/>
+                            <barButtonItem title="预览" id="zkM-SW-Chg">
+                                <connections>
+                                    <action selector="previewActionWithSender:" destination="BYZ-38-t0r" id="bhS-9n-IHE"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bodyTextView" destination="QJo-Rx-eh0" id="e67-YA-2aK"/>
+                        <outlet property="inputBar" destination="9mW-8s-15a" id="Nzq-3T-q6e"/>
+                        <outlet property="jsContext" destination="sqZ-uh-1OE" id="QtN-24-O7C"/>
+                        <outlet property="titleTextField" destination="lmX-F8-MLK" id="Sfq-ef-WN1"/>
+                        <segue destination="I6a-Ns-JVt" kind="show" identifier="preview" id="79b-0t-r2I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="sqZ-uh-1OE" customClass="JSContext"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="9mW-8s-15a">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="#" id="fad-Rv-yzS"/>
+                        <barButtonItem title="*" id="ICh-4h-oRA"/>
+                        <barButtonItem title="-" id="HNB-Oz-WGo"/>
+                        <barButtonItem title="link" id="BzG-hh-aBE"/>
+                        <barButtonItem title="img" id="B7C-Dt-wZJ"/>
+                    </items>
+                </toolbar>
             </objects>
+            <point key="canvasLocation" x="-164" y="190.25487256371815"/>
+        </scene>
+        <!--预览-->
+        <scene sceneID="glH-UC-d4S">
+            <objects>
+                <viewController title="预览" id="I6a-Ns-JVt" customClass="PreviewViewController" customModule="MDEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wg9-kN-UBG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" customUserAgent="MDEditor/1.0" translatesAutoresizingMaskIntoConstraints="NO" id="598-Ab-jqo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="MDEditor">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rHH-mB-kaP" firstAttribute="bottom" secondItem="598-Ab-jqo" secondAttribute="bottom" id="PKO-Ur-y75"/>
+                            <constraint firstItem="598-Ab-jqo" firstAttribute="leading" secondItem="rHH-mB-kaP" secondAttribute="leading" id="fs8-Sc-OQV"/>
+                            <constraint firstItem="598-Ab-jqo" firstAttribute="top" secondItem="rHH-mB-kaP" secondAttribute="top" id="nQ7-15-ASo"/>
+                            <constraint firstItem="598-Ab-jqo" firstAttribute="trailing" secondItem="rHH-mB-kaP" secondAttribute="trailing" id="vmt-JL-0pO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rHH-mB-kaP"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="598-Ab-jqo" id="IEc-94-qzL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4wa-6o-JcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="193.85307346326837"/>
         </scene>
     </scenes>
 </document>
