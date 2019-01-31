@@ -32,6 +32,8 @@ class MDEditorViewController: UIViewController {
         bodyTextView.inputAccessoryView = inputBar
     }
 
+    
+    /// inject showdown.js and convert.js to jscontext
     func setupJavascript() {
         struct Static {
             static var showdownJs: String!
@@ -64,10 +66,14 @@ class MDEditorViewController: UIViewController {
         performSegue(withIdentifier: kShowPreviewSegueId, sender: self)
     }
 
+    
+    /// convert markdown content to html
+    ///
+    /// - Returns: html string
     func htmlString() -> String {
         struct Static {
-            static var css :String!
-            static var htmlTemplate :String!
+            static var css: String!
+            static var htmlTemplate: String!
         }
         if Static.css == nil {
             let cssPath = Bundle.main.path(forResource: "github-markdown", ofType: "css")!
@@ -85,6 +91,25 @@ class MDEditorViewController: UIViewController {
         let htmlTemplate = Static.htmlTemplate!
         let html = String(format: htmlTemplate, "\(title)", "\(css)", "\(mdBodyHtml)")
         return html
+    }
+
+    @IBAction func handleInputBarItemPress(sender: UIBarButtonItem) {
+        var selectedRange = bodyTextView.selectedRange
+        var insertText = ""
+        let title = sender.title ?? ""
+        switch title {
+        case "link":
+            insertText = "[]()"
+            selectedRange.location += 1
+        case "img":
+            insertText = "![]()"
+            selectedRange.location += 4
+        default:
+            insertText = title
+            selectedRange.location += 1
+        }
+        bodyTextView.insertText(insertText)
+        bodyTextView.selectedRange = selectedRange
     }
 
     // MARK: - Navigation
