@@ -33,13 +33,23 @@ class MDEditorViewController: UIViewController {
     }
 
     func setupJavascript() {
+        struct Static {
+            static var showdownJs: String!
+            static var convertJs: String!
+        }
+        if Static.showdownJs == nil {
+            let showdownPath = Bundle.main.path(forResource: "showdown", ofType: "js")!
+            Static.showdownJs = (try? String(contentsOfFile: showdownPath)) ?? ""
+        }
+        if Static.convertJs == nil {
+            let convertPath = Bundle.main.path(forResource: "convert", ofType: "js")!
+            Static.convertJs = (try? String(contentsOfFile: convertPath)) ?? ""
+        }
         jsContext.exceptionHandler = { _, exception in
             print("\(exception?.toString() ?? "")")
         }
-        let showdownPath = Bundle.main.path(forResource: "showdown", ofType: "js")!
-        let convertPath = Bundle.main.path(forResource: "convert", ofType: "js")!
-        let showdownJs = try? String(contentsOfFile: showdownPath)
-        let convertJs = try? String(contentsOfFile: convertPath)
+        let showdownJs = Static.showdownJs
+        let convertJs = Static.convertJs
         if showdownJs != nil {
             jsContext.evaluateScript(showdownJs)
             if convertJs != nil {
@@ -55,14 +65,24 @@ class MDEditorViewController: UIViewController {
     }
 
     func htmlString() -> String {
+        struct Static {
+            static var css :String!
+            static var htmlTemplate :String!
+        }
+        if Static.css == nil {
+            let cssPath = Bundle.main.path(forResource: "github-markdown", ofType: "css")!
+            Static.css = (try? String(contentsOfFile: cssPath, encoding: .utf8)) ?? ""
+        }
+        if Static.htmlTemplate == nil {
+            let htmlTemplatePath = Bundle.main.path(forResource: "index", ofType: "html")!
+            Static.htmlTemplate = (try? String(contentsOfFile: htmlTemplatePath, encoding: .utf8)) ?? ""
+        }
         let title = titleTextField.text ?? "预览"
         let mdBody = bodyTextView.text ?? ""
         let jsFunctionValue = jsContext.objectForKeyedSubscript("convert")
         let mdBodyHtml = jsFunctionValue?.call(withArguments: [mdBody])?.toString() ?? ""
-        let cssPath = Bundle.main.path(forResource: "github-markdown", ofType: "css")!
-        let css = try! String(contentsOfFile: cssPath, encoding: .utf8)
-        let htmlTemplatePath = Bundle.main.path(forResource: "index", ofType: "html")!
-        let htmlTemplate = (try? String(contentsOfFile: htmlTemplatePath, encoding: .utf8)) ?? ""
+        let css = Static.css!
+        let htmlTemplate = Static.htmlTemplate!
         let html = String(format: htmlTemplate, "\(title)", "\(css)", "\(mdBodyHtml)")
         return html
     }
