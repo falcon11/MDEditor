@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D6F2A0D75A64EA86D23E054E /* Pods_MDEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31F815FCA86017E84D90A72 /* Pods_MDEditor.framework */; };
 		F94AC7592201893400C393E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC7582201893400C393E5 /* AppDelegate.swift */; };
 		F94AC75B2201893400C393E5 /* MDEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC75A2201893400C393E5 /* MDEditorViewController.swift */; };
 		F94AC75E2201893400C393E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94AC75C2201893400C393E5 /* Main.storyboard */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2952A6585500C93CD063F232 /* Pods-MDEditor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDEditor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MDEditor/Pods-MDEditor.debug.xcconfig"; sourceTree = "<group>"; };
+		A31F815FCA86017E84D90A72 /* Pods_MDEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94AC7552201893400C393E5 /* MDEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94AC7582201893400C393E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94AC75A2201893400C393E5 /* MDEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDEditorViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		F94AC7712201923E00C393E5 /* github-markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.css"; sourceTree = "<group>"; };
 		F94AC7742201929F00C393E5 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		F94AC7762201955000C393E5 /* convert.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = convert.js; sourceTree = "<group>"; };
+		FB152E00B71AB14842B233F7 /* Pods-MDEditor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDEditor.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDEditor/Pods-MDEditor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F2A0D75A64EA86D23E054E /* Pods_MDEditor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0807AB49BAB6D613C1995547 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2952A6585500C93CD063F232 /* Pods-MDEditor.debug.xcconfig */,
+				FB152E00B71AB14842B233F7 /* Pods-MDEditor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F19FE67672CE3FF24E5DD1BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A31F815FCA86017E84D90A72 /* Pods_MDEditor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F94AC74C2201893400C393E5 = {
 			isa = PBXGroup;
 			children = (
 				F94AC7572201893400C393E5 /* MDEditor */,
 				F94AC7562201893400C393E5 /* Products */,
+				0807AB49BAB6D613C1995547 /* Pods */,
+				F19FE67672CE3FF24E5DD1BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F94AC7672201893600C393E5 /* Build configuration list for PBXNativeTarget "MDEditor" */;
 			buildPhases = (
+				983220813CC7226B18D487BB /* [CP] Check Pods Manifest.lock */,
 				F94AC7512201893400C393E5 /* Sources */,
 				F94AC7522201893400C393E5 /* Frameworks */,
 				F94AC7532201893400C393E5 /* Resources */,
+				DFCF8814716D57032BA344FC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,6 +206,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		983220813CC7226B18D487BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MDEditor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFCF8814716D57032BA344FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MDEditor/Pods-MDEditor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MDEditor/Pods-MDEditor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F94AC7512201893400C393E5 /* Sources */ = {
@@ -332,6 +405,7 @@
 		};
 		F94AC7682201893600C393E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2952A6585500C93CD063F232 /* Pods-MDEditor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -350,6 +424,7 @@
 		};
 		F94AC7692201893600C393E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB152E00B71AB14842B233F7 /* Pods-MDEditor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
