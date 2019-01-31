@@ -48,7 +48,7 @@ class MDEditorViewController: UIViewController {
         }
     }
 
-    // MARK: Actions
+    // MARK: - Actions
 
     @IBAction func previewAction(sender: UIBarButtonItem) {
         performSegue(withIdentifier: kShowPreviewSegueId, sender: self)
@@ -67,7 +67,7 @@ class MDEditorViewController: UIViewController {
         return html
     }
 
-    // MARK: Navigation
+    // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kShowPreviewSegueId {

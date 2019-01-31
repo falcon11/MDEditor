@@ -11,6 +11,7 @@ import WebKit
 
 class PreviewViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var progressView: UIProgressView!
     var htmlString: String?
 
     override func viewDidLoad() {
@@ -23,11 +24,21 @@ class PreviewViewController: UIViewController {
     
     func setupWebView() {
         webView.navigationDelegate = self;
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
     
     func loadHtml() {
         if htmlString != nil {
             webView.loadHTMLString(htmlString!, baseURL: nil)
+        }
+    }
+    
+    // MARK: - KVO
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "estimatedProgress" {
+            let progress = Float(webView.estimatedProgress)
+            progressView.progress = progress
+            progressView.isHidden = progress == 1.0
         }
     }
 
@@ -40,8 +51,13 @@ class PreviewViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    deinit {
+        webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+    }
 }
 
+// MARK: - WKNavigationDelegate
 extension PreviewViewController: WKNavigationDelegate {
     
 }

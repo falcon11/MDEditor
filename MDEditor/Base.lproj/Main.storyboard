@@ -46,7 +46,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QJo-Rx-eh0">
                                 <rect key="frame" x="0.0" y="94" width="375" height="573"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text"># Dillinger
+                                <string key="text"># Dillinger
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
@@ -227,7 +227,7 @@ MIT
    [PlOd]: &lt;https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md&gt;
    [PlMe]: &lt;https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md&gt;
    [PlGa]: &lt;https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md&gt;
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -286,7 +286,7 @@ MIT
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" customUserAgent="MDEditor/1.0" translatesAutoresizingMaskIntoConstraints="NO" id="598-Ab-jqo">
+                            <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" customUserAgent="MDEditor/1.0" translatesAutoresizingMaskIntoConstraints="NO" id="598-Ab-jqo">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="MDEditor">
@@ -294,17 +294,27 @@ MIT
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wzA-Kb-T2c">
+                                <rect key="frame" x="0.0" y="64" width="375" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="Sgq-03-cbq"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wzA-Kb-T2c" firstAttribute="leading" secondItem="Wg9-kN-UBG" secondAttribute="leading" id="0EZ-ji-JoX"/>
                             <constraint firstItem="rHH-mB-kaP" firstAttribute="bottom" secondItem="598-Ab-jqo" secondAttribute="bottom" id="PKO-Ur-y75"/>
+                            <constraint firstItem="wzA-Kb-T2c" firstAttribute="top" secondItem="rHH-mB-kaP" secondAttribute="top" id="aHI-rH-Gd3"/>
                             <constraint firstItem="598-Ab-jqo" firstAttribute="leading" secondItem="rHH-mB-kaP" secondAttribute="leading" id="fs8-Sc-OQV"/>
+                            <constraint firstAttribute="trailing" secondItem="wzA-Kb-T2c" secondAttribute="trailing" id="gPC-03-nk3"/>
                             <constraint firstItem="598-Ab-jqo" firstAttribute="top" secondItem="rHH-mB-kaP" secondAttribute="top" id="nQ7-15-ASo"/>
                             <constraint firstItem="598-Ab-jqo" firstAttribute="trailing" secondItem="rHH-mB-kaP" secondAttribute="trailing" id="vmt-JL-0pO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rHH-mB-kaP"/>
                     </view>
                     <connections>
+                        <outlet property="progressView" destination="wzA-Kb-T2c" id="o8T-cO-o9j"/>
                         <outlet property="webView" destination="598-Ab-jqo" id="IEc-94-qzL"/>
                     </connections>
                 </viewController>
