@@ -64,7 +64,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="MD编辑器" id="Usy-Uh-HhJ">
                         <rightBarButtonItems>
-                            <barButtonItem title="保存" id="FWP-Cj-eUw"/>
+                            <barButtonItem title="保存" id="FWP-Cj-eUw">
+                                <connections>
+                                    <action selector="saveFileToTemp" destination="BYZ-38-t0r" id="AOy-wO-mvw"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="预览" id="zkM-SW-Chg">
                                 <connections>
                                     <action selector="previewActionWithSender:" destination="BYZ-38-t0r" id="bhS-9n-IHE"/>
@@ -99,6 +103,11 @@
                         <barButtonItem title="-" id="HNB-Oz-WGo">
                             <connections>
                                 <action selector="handleInputBarItemPressWithSender:" destination="BYZ-38-t0r" id="716-c3-eTS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="``" id="GWQ-1r-xl6">
+                            <connections>
+                                <action selector="handleInputBarItemPressWithSender:" destination="BYZ-38-t0r" id="6Ny-66-rYi"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem title="link" id="BzG-hh-aBE">

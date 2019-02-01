@@ -20,19 +20,38 @@ class MDEditorViewController: UIViewController {
 
     @IBOutlet var bodyTextView: UITextView!
 
+    var article: Article!
+
+    var articleTitle: String? {
+        return titleTextField.text
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        initArticle()
         setupViews()
         setupJavascript()
+        print("kTempFilePath:\(kTempFilePath)")
+//        print("ktempfile relative path:\(shareFileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].relativePath)")
+    }
+
+    func initArticle() {
+        let localArticleData = try? Data(contentsOf: URL(string: kTempFilePath)!)
+        if localArticleData != nil {
+            article = Article.fromData(localArticleData!)
+        } else {
+            article = Article(title: nil, data: nil, createAt: nil, updateAt: nil, tags: nil)
+        }
     }
 
     func setupViews() {
         bodyTextView.textContainerInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
         bodyTextView.inputAccessoryView = inputBar
+        titleTextField.text = article.title
+        bodyTextView.text = article.data
     }
 
-    
     /// inject showdown.js and convert.js to jscontext
     func setupJavascript() {
         struct Static {
@@ -66,7 +85,6 @@ class MDEditorViewController: UIViewController {
         performSegue(withIdentifier: kShowPreviewSegueId, sender: self)
     }
 
-    
     /// convert markdown content to html
     ///
     /// - Returns: html string
@@ -110,6 +128,24 @@ class MDEditorViewController: UIViewController {
         }
         bodyTextView.insertText(insertText)
         bodyTextView.selectedRange = selectedRange
+    }
+
+    @IBAction func saveFileToTemp() {
+        do {
+            // should use url, using string path can't prefix with file://
+            try shareFileManager.createDirectory(at: URL(string: kTempDirectory)!, withIntermediateDirectories: true, attributes: nil)
+        } catch let error {
+            print("create temp directory failed: \(error)")
+        }
+        article.title = titleTextField.text
+        article.data = bodyTextView.text
+        article.updateAt = Date()
+        let jsonString = article.encodeToJsonString()
+        do {
+            try jsonString?.write(to: URL(string: kTempFilePath)!, atomically: true, encoding: .utf8)
+        } catch let error {
+            print("writeFile failed\(error)")
+        }
     }
 
     // MARK: - Navigation

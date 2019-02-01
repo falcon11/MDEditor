@@ -18,6 +18,9 @@
 		F94AC7732201923E00C393E5 /* github-markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = F94AC7712201923E00C393E5 /* github-markdown.css */; };
 		F94AC7752201929F00C393E5 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = F94AC7742201929F00C393E5 /* index.html */; };
 		F94AC7772201955000C393E5 /* convert.js in Resources */ = {isa = PBXBuildFile; fileRef = F94AC7762201955000C393E5 /* convert.js */; };
+		F94AC77A2202D71400C393E5 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC7792202D71400C393E5 /* Paths.swift */; };
+		F94AC77D2202E9C400C393E5 /* FileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC77C2202E9C400C393E5 /* FileUtil.swift */; };
+		F94AC7812202EC9700C393E5 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94AC7802202EC9700C393E5 /* Article.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		F94AC7712201923E00C393E5 /* github-markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "github-markdown.css"; sourceTree = "<group>"; };
 		F94AC7742201929F00C393E5 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		F94AC7762201955000C393E5 /* convert.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = convert.js; sourceTree = "<group>"; };
+		F94AC7792202D71400C393E5 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		F94AC77C2202E9C400C393E5 /* FileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtil.swift; sourceTree = "<group>"; };
+		F94AC7802202EC9700C393E5 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		FB152E00B71AB14842B233F7 /* Pods-MDEditor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDEditor.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDEditor/Pods-MDEditor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +94,9 @@
 		F94AC7572201893400C393E5 /* MDEditor */ = {
 			isa = PBXGroup;
 			children = (
+				F94AC77E2202EBE300C393E5 /* Models */,
+				F94AC77B2202E91300C393E5 /* Utils */,
+				F94AC7782202D6F500C393E5 /* Macro */,
 				F94AC76C2201917500C393E5 /* Resources */,
 				F94AC7582201893400C393E5 /* AppDelegate.swift */,
 				F94AC75A2201893400C393E5 /* MDEditorViewController.swift */,
@@ -133,6 +142,30 @@
 				F94AC7712201923E00C393E5 /* github-markdown.css */,
 			);
 			path = css;
+			sourceTree = "<group>";
+		};
+		F94AC7782202D6F500C393E5 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				F94AC7792202D71400C393E5 /* Paths.swift */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		F94AC77B2202E91300C393E5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F94AC77C2202E9C400C393E5 /* FileUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F94AC77E2202EBE300C393E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F94AC7802202EC9700C393E5 /* Article.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +294,10 @@
 			files = (
 				F94AC75B2201893400C393E5 /* MDEditorViewController.swift in Sources */,
 				F94AC7592201893400C393E5 /* AppDelegate.swift in Sources */,
+				F94AC7812202EC9700C393E5 /* Article.swift in Sources */,
+				F94AC77A2202D71400C393E5 /* Paths.swift in Sources */,
 				F94AC76B2201907E00C393E5 /* PreviewViewController.swift in Sources */,
+				F94AC77D2202E9C400C393E5 /* FileUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
